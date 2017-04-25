@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Persons.Models.Person>
+@{
+    ViewBag.Title = "ShowPersons";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowPersons</h2>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        @item.Name
+    }
+}
+
+

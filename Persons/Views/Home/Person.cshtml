@@ -1,0 +1,75 @@
+﻿@model Persons.Models.Person
+@{
+    ViewBag.Title = "Person";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    
+    <style>
+        .field-validation-error, .validation-summary-errors {
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+
+}
+
+@section scripts{
+    
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+}
+
+
+<h2>Person</h2>
+<h3>Dane osobowe</h3>
+@*<h4>Imie: @Model.Name</h4>
+    <h4>Nazwisko: @Model.Surname </h4>
+    <h4>Wiek: @Model.Age</h4>*@
+@*@Html.DisplayNameFor(x=>x.Age)
+    @Html.TextBoxFor(x=>x.Name)
+    @Html.ValidationMessageFor(x=>x.Name)*@
+
+
+
+<h2>Dodaj osobe do Listy</h2>
+@if (ViewBag.Info ==true)
+{
+    <h4 style="color: red">Dodaj osoby !!!</h4>
+}
+
+    @using (@Html.BeginForm("Check", "Home", FormMethod.Post))
+    {
+        <table class="table">
+            <tr>
+                <td>@Html.DisplayNameFor(x=>x.Name)</td>
+                <td>@Html.TextBoxFor(x => x.Name)</td>
+                <td>@Html.ValidationMessageFor(x=>x.Name)</td>
+            </tr>
+
+            <tr>
+                <td>@Html.DisplayNameFor(x => x.Surname)</td>
+                <td>@Html.TextBoxFor(x => x.Surname)</td>
+                <td>@Html.ValidationMessageFor(x => x.Surname)</td>
+            </tr>
+
+            <tr>
+                <td>@Html.DisplayNameFor(x => x.Age)</td>
+                <td>@Html.TextBoxFor(x => x.Age)</td>
+                <td>@Html.ValidationMessageFor(x => x.Age)</td>
+            </tr>
+
+            <tr>
+                <td>@Html.DisplayNameFor(x => x.Email)</td>
+                <td>@Html.TextBoxFor(x => x.Email)</td>
+                <td>@Html.ValidationMessageFor(x => x.Email)</td>
+            </tr>
+
+        </table>
+        <button type="submit" class="btn btn-primary">Dodaj</button>
+        <p> @Html.ValidationSummary()</p>
+    }
+
+
